@@ -7,6 +7,9 @@ socialRankingApp.controller('TalkListController', function ($scope, $http) {
   $http.get('talks.json').success(function(talks){
     $scope.talks = talks;
     $scope.sort_by('total');
+  }).error(function(){
+    alert('run "./get_talks.pl" first.');
+    return;
   });
   $scope.sort_by = function(service_name) {
     var talks = $scope.talks;
