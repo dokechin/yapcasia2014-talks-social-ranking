@@ -1,7 +1,5 @@
 ## How to use;
 
----
-
 ### Install a dependency module.
 
     $ cpanm Mojolicious

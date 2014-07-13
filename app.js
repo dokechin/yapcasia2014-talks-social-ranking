@@ -3,18 +3,19 @@ socialRankingApp.filter('escape', function() {
   return encodeURIComponent;
 });
 socialRankingApp.controller('TalkListController', function ($scope, $http) {
-  var current_ranking = 'total';
-  $http.get('talks.json').success(function(talks){
-    $scope.talks = talks;
+  var talks;
+  $http.get('talks.json').success(function(data){
+    talks = data;
     $scope.sort_by('total');
   }).error(function(){
     alert('run "./get_talks.pl" first.');
     return;
   });
   $scope.sort_by = function(service_name) {
-    var talks = $scope.talks;
+    console.log(service_name);
     talks.sort(function(a, b){
-      return b[service_name + '_count'] > a[service_name + '_count'];
+      var key = service_name + '_count';
+      return b[key] - a[key];
     });
     $scope.talks = talks;
     $('.active-header').removeClass('active-header');
