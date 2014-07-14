@@ -19,6 +19,9 @@ for my $n ( $tx->res->dom('div.talk')->each ) {
     };
 
     print "Count...: $talk->{title}\n";
+    print "Count...: $talk->{url}\n";
+    print "Count...: $talk->{icon_url}\n";
+    print "Count...: $talk->{speaker_name}\n";
 
     # Twitter-count
     $tx = $ua->get(
