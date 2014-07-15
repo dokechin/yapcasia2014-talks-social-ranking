@@ -10,8 +10,9 @@
 
 Then, `talks.json` file is generated.
 
-### Open the HTML with talk lists.
+### Open the HTML with talk lists. index.html(Angular.js),index2.html(Vue.js)
 
     $ open index.html
+    $ open index2.html
 
 Enjoy!
