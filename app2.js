@@ -2,14 +2,13 @@ Vue.filter('escape',function() {
   return encodeURIComponent;
 });
 var app =  new Vue({
-    el: '.talk',
+    el: '.container-fluid',
     data: {
-        talks: [
-        ],
+        talks: [],
         active: "total"
         },
     methods: {
-        sort: function(service_name){
+        sort_by: function(service_name){
             console.log(service_name);
             talks = this.$get("talks");
             talks.sort(function(a, b){
@@ -22,8 +21,11 @@ var app =  new Vue({
     },
     created: function(){
         console.log("created");
-        var talks = require('talks.json');
-        this.$set("talks",talks);
+        var context = this;
+        $.getJSON("talks.json", function(data){
+          console.log(data);
+          context.$set("talks",data);
+        });
     }
 });
 

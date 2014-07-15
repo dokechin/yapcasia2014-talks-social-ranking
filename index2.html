@@ -17,7 +17,6 @@
     <![endif]-->
     <link rel="stylesheet" href="app.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="jx.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/0.10.5/vue.min.js"></script>
   </head>
@@ -40,12 +39,12 @@
               <th><a class="facebook-header" v-class="active-header : active == 'facbook'" v-on="click: sort_by('facebook');">Facebook</th>
               <th><a class="total-header"    v-class="active-header : active == 'total'" v-on="click: sort_by('total');">Total</th>
             <tr>
-            <tr class="talk" v-repeat="talks">
+            <tr id ="talk" class="talk" v-repeat="talks">
               <td><img src="{{icon_url}}"></td>
               <td>{{speaker_name}}</td>
               <td><a href="{{url}}" target="_blank">{{title}}</a></td>
               <td><a href="http://b.hatena.ne.jp/entry/{{ url }}" target="_blank">{{hatena_count}}</a></td>
-              <td><a href="http://twitter.com/search?q={{ url | escape }}" target="_blank">{{twitter_count}}</td>
+              <td><a href="http://twitter.com/search?q={{ url | escape}}" target="_blank">{{twitter_count}}</td>
               <td>{{facebook_count}}</td>
               <td>{{total_count}}</td>
             <tr>
