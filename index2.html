@@ -39,7 +39,7 @@
               <th><a class="facebook-header" v-class="active-header : active == 'facbook'" v-on="click: sort_by('facebook');">Facebook</th>
               <th><a class="total-header"    v-class="active-header : active == 'total'" v-on="click: sort_by('total');">Total</th>
             <tr>
-            <tr id ="talk" class="talk" v-repeat="talks">
+            <tr class="talk" v-repeat="talks">
               <td><img src="{{icon_url}}"></td>
               <td>{{speaker_name}}</td>
               <td><a href="{{url}}" target="_blank">{{title}}</a></td>

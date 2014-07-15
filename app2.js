@@ -1,5 +1,5 @@
-Vue.filter('escape',function() {
-  return encodeURIComponent;
+Vue.filter('escape',function(value) {
+  return encodeURIComponent(value);
 });
 var app =  new Vue({
     el: '.container-fluid',
@@ -20,11 +20,18 @@ var app =  new Vue({
         }
     },
     created: function(){
-        console.log("created");
         var context = this;
-        $.getJSON("talks.json", function(data){
-          console.log(data);
-          context.$set("talks",data);
+        $.ajax({
+        url: "talks.json",
+        dataType: 'json',
+        success: function(data){
+            console.log(data);
+            context.$set("talks",data);
+        },
+        error: function(){
+            alert('run "./get_talks.pl" first.');
+            return;
+        }
         });
     }
 });
